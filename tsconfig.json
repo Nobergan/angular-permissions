@@ -1,0 +1,86 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "baseUrl": ".",
+    "paths": {
+      // Core //
+      "@mm/core": ["src/app/core/index.ts"],
+      "@mm/environment": ["src/environments/environment.ts"],
+      // Film Details //
+      "@mm/film-details/api": ["src/app/film-details/api/index.ts"],
+      "@mm/film-details/api/adapters": ["src/app/film-details/api/adapters.index.ts"],
+      "@mm/film-details/components": [
+        "src/app/film-details/components/index.ts"
+      ],
+      "@mm/film-details/directives": [
+        "src/app/film-details/directives/index.ts"
+      ],
+      "@mm/film-details/models": [
+        "src/app/film-details/models/index.ts"
+      ],
+      "@mm/film-details/store": [
+        "src/app/film-details/store/index.ts"
+      ],
+      // Home //
+      "@mm/home": ["src/app/home/index.ts"],
+      // Media //
+      // Shared //
+      // Directives
+      "@mm/shared/directives": ["src/app/shared/directives/index.ts"],
+      // Films
+      "@mm/films/api": ["src/app/shared/films/api/index.ts"],
+      "@mm/films/models": ["src/app/shared/films/models"],
+      "@mm/films/section": ["src/app/shared/films/section/index.ts"],
+      "@mm/films/store": ["src/app/shared/films/store/index.ts"],
+      "@mm/films/ui": ["src/app/shared/films/ui/index.ts"],
+      "@mm/films/utils": ["src/app/shared/films/utils/index.ts"],
+      // Forms
+      "@mm/forms": ["src/app/shared/forms/index.ts"],
+      "@mm/forms/controls": [
+        "src/app/shared/forms/controls/index.ts"
+      ],
+      "@mm/forms/models": ["src/app/shared/forms/models/index.ts"],
+      // Models
+      "@mm/shared/models": ["src/app/shared/models/index.ts"],
+      "@mm/shared/models/state": ["src/app/shared/models/state/index.ts"],
+      // Pipes
+      "@mm/shared/pipes": ["src/app/shared/pipes/index.ts"],
+      // Services
+      "@mm/shared/services": ["src/app/shared/services/index.ts"],
+      // Store
+      "@mm/shared/store/helpers": ["src/app/shared/store/helpers/index.ts"],
+      "@mm/shared/store/models": ["src/app/shared/store/models/index.ts"],
+      // Texts
+      "@mm/texts": ["src/app/shared/texts/uk.json"],
+      // UI
+      "@mm/shared/ui": ["src/app/shared/ui/index.ts"],
+    },
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": false,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "ES2022",
+    "useDefineForClassFields": false,
+    "lib": ["ES2022", "dom"]
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}
