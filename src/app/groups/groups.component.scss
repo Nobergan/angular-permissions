@@ -1,0 +1,12 @@
+@import '@ui/styles/utilities';
+
+:host {
+  position: relative;
+}
+
+.groups {
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+}
