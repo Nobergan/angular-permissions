@@ -1,3 +1,7 @@
+import { groupsStateModel } from "./groups-state.model";
+import { rolesStateModel } from "./roles-state.model";
+
 export interface MainState {
-  // filmDetails: FilmDetailsStateModel;
+  groups: groupsStateModel;
+  roles: rolesStateModel;
 }

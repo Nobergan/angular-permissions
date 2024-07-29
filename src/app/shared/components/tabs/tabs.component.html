@@ -1,0 +1,23 @@
+<div class="tabs">
+  <ul class="tabs__tab-list">
+    <li class="tabs__tab" *ngFor="let tab of tabs" (click)="selectTab(tab)" [class.active]="tab.active">
+      {{ tab.title }}
+    </li>
+    <div class="tabs__add-btn-wrapper">
+      <button type="button" class="tabs__add-btn" (click)="onClickOpenAddPopup()">{{ addButtonText() }}</button>
+      <form class="tabs__add-popup" *ngIf="addPopupOpen()" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <input class="tabs__add-popup-input" [formGroup]="form"
+               [formControlName]="'title'" type="text" placeholder="Enter title"/>
+        <div class="tabs__add-popup-btns">
+          <button class="tabs__add-popup-btn" type="submit">Add</button>
+          <button class="tabs__add-popup-btn tabs__add-popup-btn_close" type="button" (click)="onClickCloseAddPopup()">
+            Close
+          </button>
+        </div>
+      </form>
+    </div>
+  </ul>
+  <div class="tabs__tab-active-content">
+    <ng-content></ng-content>
+  </div>
+</div>

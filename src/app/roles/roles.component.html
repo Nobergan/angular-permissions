@@ -1,1 +1,17 @@
-<p>roles works!</p>
+<ng-container *puLet="vm$ | async as vm">
+  <div class="groups">
+    <div class="container">
+      <app-tabs
+          (clickOpenAddPopup)="openAddPopup()"
+          (clickCloseAddPopup)="closeAddPopup()"
+          [addPopupOpen]="addPopupOpen"
+          [addButtonText]="addButtonText"
+      >
+        <app-tab class="active" *ngFor="let group of vm.roles" title="{{ group.title }}">
+          <p>Content for Role 1</p>
+        </app-tab>
+      </app-tabs>
+    </div>
+  </div>
+</ng-container>
+
