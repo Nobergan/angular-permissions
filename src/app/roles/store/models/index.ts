@@ -1,1 +1,1 @@
-export * from "./roles-vm.model";
+export * from "./roles.model";

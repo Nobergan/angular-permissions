@@ -2,7 +2,8 @@ import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { inject } from "@angular/core";
 import { map, switchMap } from "rxjs";
 import { mergeMap } from "rxjs/operators";
-import { GroupsActions, GroupsApiActions } from "../actions";
+import { GroupsActions } from "../actions";
+import { ApiActions } from "../../../shared/store/actions/api.actions";
 
 export class GroupsEffects {
   loadGroups = createEffect(
@@ -20,7 +21,7 @@ export class GroupsEffects {
     (actions$ = inject(Actions)) =>
       actions$.pipe(
         ofType(GroupsActions.closed),
-        switchMap(() => [GroupsApiActions.getGroupsAction.clearAction()])
+        switchMap(() => [ApiActions.getGroupsAction.clearAction()])
       ),
     { functional: true }
   );
@@ -30,7 +31,7 @@ export class GroupsEffects {
       ofType(GroupsActions.addGroup),
       mergeMap((action) => {
         return [
-          GroupsApiActions.addGroupAction.action({
+          ApiActions.addGroupAction.action({
             payload: {
               title: action.title,
             },
@@ -43,7 +44,7 @@ export class GroupsEffects {
   getGroups = createEffect((actions$ = inject(Actions)): any =>
     actions$.pipe(
       ofType(GroupsActions.getGroups),
-      map(() => GroupsApiActions.getGroupsAction.action(null))
+      map(() => ApiActions.getGroupsAction.action(null))
     )
   );
 }

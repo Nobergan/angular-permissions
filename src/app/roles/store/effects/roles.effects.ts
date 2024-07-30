@@ -2,7 +2,8 @@ import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { inject } from "@angular/core";
 import { map, switchMap } from "rxjs";
 import { mergeMap } from "rxjs/operators";
-import { RolesActions, RolesApiActions } from "../actions";
+import { RolesActions } from "../actions";
+import { ApiActions } from "../../../shared/store/actions/api.actions";
 
 export class RolesEffects {
   loadRoles = createEffect(
@@ -20,7 +21,7 @@ export class RolesEffects {
     (actions$ = inject(Actions)) =>
       actions$.pipe(
         ofType(RolesActions.closed),
-        switchMap(() => [RolesApiActions.getRolesAction.clearAction()])
+        switchMap(() => [ApiActions.getRolesAction.clearAction()])
       ),
     { functional: true }
   );
@@ -30,7 +31,7 @@ export class RolesEffects {
       ofType(RolesActions.addRole),
       mergeMap((action) => {
         return [
-          RolesApiActions.addRoleAction.action({
+          ApiActions.addRoleAction.action({
             payload: {
               title: action.title,
             },
@@ -43,7 +44,7 @@ export class RolesEffects {
   getRoles = createEffect((actions$ = inject(Actions)): any =>
     actions$.pipe(
       ofType(RolesActions.getRoles),
-      map(() => RolesApiActions.getRolesAction.action(null))
+      map(() => ApiActions.getRolesAction.action(null))
     )
   );
 }

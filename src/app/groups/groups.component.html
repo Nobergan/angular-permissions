@@ -8,8 +8,10 @@
           [addButtonText]="addButtonText"
       >
         <app-tab class="active" *ngFor="let group of vm.groups" title="{{ group.title }}">
-          <ng-container *ngFor="let role of (roles$ | async).roles">
-            <p>{{ role.title }}</p>
+          <ng-container *ngFor="let role of vm.roles">
+            <label>
+              <input type="checkbox" [checked]="role.checked" [value]="role.title"> {{ role.title }}
+            </label>
           </ng-container>
         </app-tab>
       </app-tabs>
