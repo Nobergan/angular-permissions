@@ -10,7 +10,14 @@ import { HttpRolesProvider } from "./http-roles.provider";
 
 export interface RolesProvider {
   addRole(title: string): Observable<{ title: string }>;
+
   getRoles(): Observable<Roles[]>;
+
+  updateRoleChecked(
+    groupIndex: number,
+    roleIndex: number,
+    checked: boolean
+  ): Observable<any>;
 }
 
 export const rolesProviderToken: InjectionToken<RolesProvider> =

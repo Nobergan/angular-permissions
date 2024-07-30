@@ -1,2 +1,1 @@
-export * from './groups.actions';
-export * from './groups-api.actions';
+export * from "./groups.actions";

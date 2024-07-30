@@ -10,11 +10,13 @@ import { LetDirective } from "@mm/shared/directives";
 import { Store } from "@ngrx/store";
 import { MainState } from "@mm/shared/models/state";
 import { Observable } from "rxjs";
-import { GroupsActions, GroupsVmSelectors } from "../groups/store";
+import { GroupsActions } from "../groups/store";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { TabsComponent } from "../shared/components/tabs/tabs.component";
 import { TabComponent } from "../shared/components/tabs/tab/tab.component";
-import { RolesActions, RolesVmModel, RolesVmSelectors } from "./store";
+import { RolesActions } from "./store";
+import { GroupsAndRolesVmModel } from "../shared/models/groups-and-roles-vm.model";
+import { GroupsAndRolesVmSelectors } from "../shared/store/selectors/app-vm.selectors";
 
 @Component({
   selector: "app-roles",
@@ -30,8 +32,8 @@ export class RolesComponent implements OnInit, OnDestroy {
   addPopupOpen = false;
   addButtonText = "Add new Role";
 
-  vm$: Observable<RolesVmModel> = this._store
-    .select(RolesVmSelectors.selectRolesViewModel)
+  vm$: Observable<GroupsAndRolesVmModel> = this._store
+    .select(GroupsAndRolesVmSelectors.selectGroupsAndRolesViewModel)
     .pipe(takeUntilDestroyed(this._destroyRef));
 
   ngOnInit(): void {

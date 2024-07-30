@@ -5,16 +5,14 @@ export const GroupsActions = createActionGroup({
   events: {
     opened: emptyProps(),
     closed: emptyProps(),
-    // filmDetails: props<FilmRequest>(),
-    // filmActors: props<FilmRequest>(),
     addGroup: props<{
       title: string;
     }>(),
     getGroups: emptyProps(),
-    // addFilmVote: props<AddVotes>(),
-    // checkFilmVotedByUser: emptyProps(),
-    // getFilmVotes: emptyProps(),
-    // getFilmsSimilar: props<FilmRequest>(),
-    // genres: props<{ mediaType: string }>(),
+    updateRoleChecked: props<{
+      groupIndex: number;
+      roleIndex: number;
+      checked: boolean;
+    }>(),
   },
 });

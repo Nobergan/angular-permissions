@@ -23,10 +23,12 @@ import { appRoutes } from "./app/routes";
 import { provideGroupsStore } from "./app/groups/store";
 import { provideStore } from "@ngrx/store";
 import { provideRolesStore } from "./app/roles/store";
+import { provideAppStore } from "./app/shared/store/app-store.provider";
 
 bootstrapApplication(AppComponent, {
   providers: [
     provideRouter(appRoutes),
+    provideAppStore(),
     provideGroupsStore(),
     provideRolesStore(),
     importProvidersFrom([

@@ -1,3 +1,4 @@
 export interface Roles {
-  title: string[];
+  title: string;
+  checked: boolean;
 }

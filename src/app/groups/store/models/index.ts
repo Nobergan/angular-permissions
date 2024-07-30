@@ -1,1 +1,1 @@
-export * from './groups-vm.model';
+export * from "./groups.model";

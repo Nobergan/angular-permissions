@@ -10,13 +10,15 @@ import { AsyncPipe, NgForOf, NgIf } from "@angular/common";
 import { ReactiveFormsModule } from "@angular/forms";
 import { MainState } from "@mm/shared/models/state";
 import { Store } from "@ngrx/store";
-import { GroupsActions, GroupsVmModel, GroupsVmSelectors } from "./store";
+import { GroupsActions } from "./store";
 import { Observable } from "rxjs";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { LetDirective } from "@mm/shared/directives";
 import { TabsComponent } from "../shared/components/tabs/tabs.component";
 import { TabComponent } from "../shared/components/tabs/tab/tab.component";
-import { RolesActions, RolesVmModel, RolesVmSelectors } from "../roles/store";
+import { RolesActions } from "../roles/store";
+import { GroupsAndRolesVmSelectors } from "../shared/store/selectors/app-vm.selectors";
+import { GroupsAndRolesVmModel } from "../shared/models/groups-and-roles-vm.model";
 
 @Component({
   selector: "app-groups",
@@ -41,12 +43,8 @@ export class GroupsComponent implements OnInit, OnDestroy {
   addPopupOpen = false;
   addButtonText = "Add new Group";
 
-  vm$: Observable<GroupsVmModel> = this._store
-    .select(GroupsVmSelectors.selectGroupsViewModel)
-    .pipe(takeUntilDestroyed(this._destroyRef));
-
-  roles$: Observable<RolesVmModel> = this._store
-    .select(RolesVmSelectors.selectRolesViewModel)
+  vm$: Observable<GroupsAndRolesVmModel> = this._store
+    .select(GroupsAndRolesVmSelectors.selectGroupsAndRolesViewModel)
     .pipe(takeUntilDestroyed(this._destroyRef));
 
   ngOnInit(): void {

@@ -17,6 +17,7 @@ export class HttpRolesProvider {
       `${this.firebaseDatabaseURL}/roles.json`,
       {
         title: title,
+        checked: false,
       }
     );
   }
